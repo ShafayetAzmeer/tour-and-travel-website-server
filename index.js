@@ -120,6 +120,19 @@ client.connect((err) => {
 
   });
 
+  async function run () {
+    try {
+      await client.connect();
+      console.log('database Connected');
+
+    }
+    finally{
+      // await client.close()
+    }
+  }
+
+  run().catch(console.dir);
+
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
