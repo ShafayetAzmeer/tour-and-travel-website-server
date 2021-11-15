@@ -7,7 +7,7 @@ require("dotenv").config();
 const ObjectId = require("mongodb").ObjectId;
 
 const app = express()
-const port = 7000
+const port =process.env.PORT || 7000;
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -121,29 +121,6 @@ client.connect((err) => {
 
 
   });
-
-  
-// async function run(){
-//   try{
-//     await client.connect();
-//     const database = client.db ("tour_guide");
-//     const spotCollection = database.collection("spots");
-
-//     // Get Spots
-//     app.get("/spots", async (req, res) => {
-//       const cursor = spotCollection.find({});
-//       const spots =  await cursor.toArray();
-//       res.send(spots);
-//     })
-//   }
-//   finally{
-//     // await client.close();
-//   }
-
-// }
-
-// run().catch(console.dir);
-
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
