@@ -7,11 +7,10 @@ require("dotenv").config();
 const ObjectId = require("mongodb").ObjectId;
 
 const app = express()
-const port =process.env.PORT || 7000;
+const port =process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}));
-
 // user = tourism-website-server-side
 // password = uvBnWFDhkhupLPaX
 
@@ -134,7 +133,7 @@ client.connect((err) => {
   run().catch(console.dir);
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.send('Hello World Again')
 })
 
 app.listen(port, () => {
